@@ -56,7 +56,7 @@ def keras_predict(model, image):
 
 ## pred_class에 해당하는 글자를 반환
 def get_pred_text(pred_class):
-   pred_texts = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ", "ㅏ", "ㅓ", "ㅗ", "ㅜ", "ㅡ", "ㅣ", "/"]
+   pred_texts = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ", "ㅏ", "ㅓ", "ㅗ", "ㅜ", "ㅡ", "ㅣ", "ㅕ"]
    return pred_texts[pred_class]
 
 ## thresh에서 contour부분만 boundingRect한것을 model의 input으로 넣어 class를 예측하고 해당하는 text를 반환한다.
@@ -175,7 +175,7 @@ def text_mode(cam):
          client = texttospeech.TextToSpeechClient()
 
          # Set the text input to be synthesized
-         synthesis_input = texttospeech.SynthesisInput(text=word)
+         synthesis_input = texttospeech.SynthesisInput(text=join_jamos(word))
 
          # Build the voice request, select the language code ("en-US") and the ssml
          # voice gender ("neutral")
