@@ -24,7 +24,7 @@ from google.cloud import texttospeech
    #engine = pyttsx3.init()
    #engine.setProperty('rate', 150)
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3c'   
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'   
 model = load_model('cnn_model_keras2.h5')
 
 # 저장해둔 histogram 파일 로드하고 반환
@@ -175,7 +175,9 @@ def text_mode(cam):
          client = texttospeech.TextToSpeechClient()
 
          # Set the text input to be synthesized
+         
          synthesis_input = texttospeech.SynthesisInput(text=join_jamos(word))
+         # synthesis_input = texttospeech.SynthesisInput(text="안녕하세요")
 
          # Build the voice request, select the language code ("en-US") and the ssml
          # voice gender ("neutral")
